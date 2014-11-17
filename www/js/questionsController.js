@@ -1,10 +1,14 @@
 
-angular.module("sgnApp.questionsController", [])
+angular.module("sgnApp.questionsController", [ "sqnApp.dataService" ])
 .controller("QuestionsController", 
-		function ($scope, $http, $routeParams, $location, $resultsService, sgnDataService) {
-
-	$scope.questions = sgnDataService.data.questions;
+		function ($scope, $http, $routeParams, $location) {
+// , sgnDataService
 	
+	$scope.msg = "Test";
+	$scope.questions = [ { text: "q1" }, { text: "q2"} ]; //
+		// sgnDataService.getData().questions;
+
+	/*
 		  $scope.questionNo = $routeParams && $routeParams.questionNo ? $routeParams.questionNo : 1;
 
 // TODO		    $scope.questions = questions;
@@ -17,5 +21,5 @@ angular.module("sgnApp.questionsController", [])
 		    $resultsService.setResults($scope.questions);
 		    $location.path( "/results" );
 		  }
-
+	*/
 });

@@ -1,12 +1,17 @@
 <ion-view title="Questions">
   <ion-content padding="true" >
       <h2>Questions</h2>
-      <p>test TotoController {{msg}}</p>
+      <p>test {{msg}}</p>
 	
 <div id="questions" class="carousel slide" data-interval="false">
   <!-- Carousel items -->
-
-	<h3>Question {{questions}}</h3>
+	<div ng-repeat="question in questions">
+		<h3>Question {{question.text}}</h3>
+		
+		<div ng-repeat="answer in question.answers">
+			<h4>{{answer.text}}</h4>
+		</div>
+	</div>
 
 </div>
 

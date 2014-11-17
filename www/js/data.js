@@ -1,8 +1,6 @@
 angular.module("sqnApp.dataService", [])
-.factory("sgnDataService", function ($scope, $localStorage) {
-
-	return {
-	  data : {
+.service("sgnDataService", function () {
+	  var data = {
 
 		questions : [
 		        {
@@ -121,18 +119,24 @@ angular.module("sqnApp.dataService", [])
 		        	    }
 		        	    ]
 		        }
+		    ]
+	  }; // var data
 
-		    ] // $scope.data
+	  
+	return {
+
+	  getData : function() {
+		  return data;
 	  },
-
+	  
 	  writeDataToLocalStorage : function() {
 		  console.log("writeStorage");
-		  window.localStorage["sgn-data"] = $scope.data;
+		  window.localStorage["sgn-data"] = data;
 	  },
 
 	  readDataFromLocalStorage : function() {
 		  console.log("readDataFromLocalStorage");
-		  $scope.data = window.localStorage["sgn-data"];
+		  data = window.localStorage["sgn-data"];
 	  }
 	}; // return
 });

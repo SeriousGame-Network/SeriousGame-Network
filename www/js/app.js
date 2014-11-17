@@ -36,54 +36,12 @@ app.controller("TotoController", function($scope) {
 	$scope.msg = "Hello";
 });
 
-app.service("sgnDataService2", function() {
-	return {
-		data : {
 
-				questions : [
-				        { // question 1
-				        	name : "java access modifiers",
-				        	tags : "dev java langage",
-				        	level : 1,
-				        	text : "Quels sont les modificateurs d'accès en Java ?",
-				        	answers : 
-				        		[
-				        	    {
-				        	    	text : "public, private",
-				        	    	score : 0.0
-				        	    },
-				        	    {
-				        	    	text : "public, private, protected",
-				        	    	score : 0.0
-				        	    },
-				        	    {
-				        	    	text : "public, private, protected, [default]",
-				        	    	score : 1.0	
-				        	    },
-				        	    {
-				        	    	text : "public, private, final",
-				        	    	score : 0.0
-				        	    },
-				        	    {
-				        	    	text : "public, private, friend",
-				        	    	score : 0.0
-				        	    }
-				        	    ]
-				        }
-				    ] 
-			  } // data
-	}; // return
-});
-
-app.controller("QuestionsController2", function ($scope, sgnDataService2) {
+app.controller("QuestionsController2", function ($scope, sgnDataService) {
 
 	$scope.msg = "msg---QuestionsController2";
- 	$scope.questions = sgnDataService2.data.questions;
-//	$scope.questions = [
-//	                    { text : "q1"}, 
-//	                    { text: "q2"}
-//	                    ];
-		
+	var data = sgnDataService.getData();
+	$scope.questions = sgnDataService.getData().questions;
 
 
 		  /*
@@ -99,6 +57,10 @@ app.controller("QuestionsController2", function ($scope, sgnDataService2) {
 		  }
 */
 });
+
+
+
+
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
