@@ -59,14 +59,17 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 });
 
 
-app.controller("HomeController", function ($scope) {
+app.controller("HomeController", function ($scope, $state) {
+	$scope.navigateToPlaySelect = function() {
+		$state.transitionTo('tab.playselect');
+	}
 });
 
 
 app.controller("DashboardController", function ($scope) {
 });
 
-app.controller("PlaySelectController", function ($scope) {
+app.controller("PlaySelectController", function ($scope, $state) {
 });
 
 app.controller("QuizzSelectController", function ($scope) {
@@ -115,7 +118,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
-    $stateProvider.state('tab.play.select', {
+    $stateProvider.state('tab.playselect', {
         url: "/play-select",
         views: {
             'tab-play-select': {
@@ -124,18 +127,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }    	  
         }
       });
-    $stateProvider.state('tab.play.select', {
-        url: "/tab/play-select",
-        views: {
-            'tab-play-select': {
-              templateUrl: 'templates/tab-play-select.html',
-              controller: 'PlaySelectController'
-            }    	  
-        }
-      });
 
-    $stateProvider.state('tab.quizz.select', {
-        url: "/tab/quizz-select",
+    $stateProvider.state('tab.quizzselect', {
+        url: "/quizz-select",
         views: {
             'tab-quizz-select': {
               templateUrl: 'templates/tab-quizz-select.html',
@@ -144,7 +138,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       });
 
-    $stateProvider.state('tab.quizz.play-start', {
+    $stateProvider.state('tab.quizzplaystart', {
         url: "/quizz-start",
         views: {
             'tab-quizz-play-start': {
@@ -159,12 +153,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'tab-questions': {
           templateUrl: 'templates/questions.html',
-          controller: 'QuestionsController2' // 'TotoController' // 'QuestionsController'
+          controller: 'QuestionsController2'
         }
       }
     })
 
-  $stateProvider.state('tab.quizz.play-end', {
+  $stateProvider.state('tab.quizzplayend', {
         url: "/quizz-end",
         views: {
             'tab-quizz-play-end': {
@@ -187,7 +181,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  // $urlRouterProvider.otherwise('/tab/home');
 
 });
 
