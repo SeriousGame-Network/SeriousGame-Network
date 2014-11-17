@@ -1,20 +1,11 @@
 <ion-view title="Serious Games Network - Quizz">
   <ion-content padding="true" >
 
-      <h2>Questions</h2>
-      <p>test {{msg}}</p>
-	
-<div id="questions" class="carousel slide" data-interval="false">
-  <!-- Carousel items -->
-	<div ng-repeat="question in questions">
-		<h2>Question {{question.text}}</h2>
+		<h2>{{currentQuestion.text}} {{currentQuestionNb+1}}/{{questions.length}}</h2>
 
-		<button ng-repeat="answer in question.answers" class="button button-full button-calm">
+		<button ng-click="selectAnswer({{answer}});" ng-repeat="answer in currentQuestion.answers" class="button button-full button-calm">
 			<h3>{{answer.text}}</h3>
 		</button>
-	</div>
-
-</div>
 
   </ion-content>
 </ion-view>

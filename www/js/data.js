@@ -65,16 +65,16 @@ angular.module("sqnApp.dataService", [])
 		        	name : "",
 		        	tags : "événement hackathon",
 		        	level : 3,
-		        	text : "En-dessous de quel niveau sonore le pitch n'est-il plus audible ?",
+		        	text : "A partir de quel niveau sonore le pitch n'est-il plus audible ?",
 		        	answers : 
 		        		[
 		        	    {
 		        	    	text : "10 db",
-		        	    	score : 1.0
+		        	    	score : 0.0
 		        	    },
 		        	    {
 		        	    	text : "50 db",
-		        	    	score : 0.0
+		        	    	score : 1.0
 		        	    },
 		        	    {
 		        	    	text : "100 db",
@@ -98,23 +98,23 @@ angular.module("sqnApp.dataService", [])
 		        	answers : 
 		        		[
 		        	    {
-		        	    	text : "Mon équipe était déjà constituée avant",
+		        	    	text : "Mon équipe était déjà constituée avant !",
 		        	    	score : 1.0
 		        	    },
 		        	    {
-		        	    	text : "J'ai fait un super speech, on a du refuser du monde",
+		        	    	text : "J'ai fait un super speech, on a du refuser du monde !",
 		        	    	score : 1.0
 		        	    },
 		        	    {
-		        	    	text : "Je suis un éternel incompris, je n'ai pas d'équipe",
+		        	    	text : "Je suis un éternel incompris, je n'ai pas d'équipe...",
 		        	    	score : 0.0	
 		        	    },
 		        	    {
-		        	    	text : "L'idée est là, mais je recherche un développeur",
+		        	    	text : "Moi je recherche encore un développeur...",
 		        	    	score : 0.0
 		        	    },
 		        	    {
-		        	    	text : "Je n'ai pas d'équipe, je suis là en mission top secrète",
+		        	    	text : "Je n'ai pas d'équipe, je suis là en mission top secrète !",
 		        	    	score : 0.0
 		        	    }
 		        	    ]

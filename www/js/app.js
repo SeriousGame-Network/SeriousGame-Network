@@ -43,6 +43,23 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 	var data = sgnDataService.getData();
 	$scope.questions = sgnDataService.getData().questions;
 
+	$scope.currentQuestionNb = 0;
+	$scope.currentQuestion = $scope.questions[$scope.currentQuestionNb];
+
+	$scope.selectedAnswers = [];
+	$scope.score = 0;
+
+	$scope.selectAnswer = function(answer) {
+
+		$scope.selectedAnswers.push(answer);
+		$scope.currentQuestionNb++;
+		$scope.currentQuestion = $scope.questions[$scope.currentQuestionNb % 4];
+		$scope.score += answer.score;
+
+		if ($scope.currentQuestionNb == $scope.questions.length) {
+			alert("Vous avez marqué : " + $scope.score + " points");
+		}
+	};
 });
 
 
