@@ -8,7 +8,7 @@ angular.module("sqnApp.dataService", [])
 
 		questions : [
 		        { // question 1
-		        	name = "java acces-modifiers"
+		        	name : "java acces-modifiers",
 		        	tags : "dev java langage",
 		        	level : 1,
 		        	text : "Quels sont les modificateurs d'accès en Java ?",
@@ -36,13 +36,8 @@ angular.module("sqnApp.dataService", [])
 		        	    }
 		        	    ]
 		        }
-<<<<<<< HEAD
 		    ]; // $scope.data
-	  
-=======
-		    ];
 
->>>>>>> 7eae47644573ba27ce1f8db7fca5e8a0d7211cbb
 	  $scope.writeDataToLocalStorage = function() {
 		  console.log("writeStorage");
 		  window.localStorage["sgn-data"] = $scope.data;
