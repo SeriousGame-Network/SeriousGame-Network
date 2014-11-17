@@ -123,6 +123,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
+/*
     .state('tab.friends', {
       url: '/friends',
       views: {
@@ -132,6 +133,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+*/
+
+/*
     .state('tab.friend-detail', {
       url: '/friend/:friendId',
       views: {
@@ -141,7 +145,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-
+*/
+/*
     .state('tab.account', {
       url: '/account',
       views: {
@@ -150,7 +155,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'AccountCtrl'
         }
       }
-    });
+    })
+*/;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
