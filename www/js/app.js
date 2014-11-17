@@ -43,7 +43,7 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 	var data = sgnDataService.getData();
 	$scope.questions = sgnDataService.getData().questions;
 
-	$scope.currentQuestionNb = 0;
+	$scope.currentQuestionNb = 1;
 	$scope.currentQuestion = $scope.questions[$scope.currentQuestionNb];
 
 	$scope.selectedAnswers = [];
