@@ -3,20 +3,21 @@
 app.service("dataService", function ($scope, $localStorage) {
 
 	$scope.data = {
-			  
+
 		questions = [
-		        { // question 1
-		        	name : "",
+		        {
+		        	tags : "dev java langage",
+		        	level : 1,
 		        	text : "Quels sont les modificateurs d'accès en Java ?",
 		        	answers : 
 		        		[
 		        	    {
 		        	    	text : "public, private",
-		        	    	score : 0
+		        	    	score : 0.0
 		        	    },
 		        	    {
 		        	    	text : "public, private, protected",
-		        	    	score : 0.5
+		        	    	score : 0.0
 		        	    },
 		        	    {
 		        	    	text : "public, private, protected, [default]",
@@ -24,16 +25,16 @@ app.service("dataService", function ($scope, $localStorage) {
 		        	    },
 		        	    {
 		        	    	text : "public, private, final",
-		        	    	score : 0
+		        	    	score : 0.0
 		        	    },
 		        	    {
 		        	    	text : "public, private, friend",
-		        	    	score : 0
+		        	    	score : 0.0
 		        	    }
 		        	    ]
 		        }
 		    ];
-	  
+
 	  $scope.writeDataToLocalStorage = function() {
 		  console.log("writeStorage");
 		  window.localStorage["sgn-data"] = $scope.data;
