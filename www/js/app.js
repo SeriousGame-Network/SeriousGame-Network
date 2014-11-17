@@ -66,6 +66,18 @@ app.controller("HomeController", function ($scope) {
 app.controller("DashboardController", function ($scope) {
 });
 
+app.controller("PlaySelectController", function ($scope) {
+});
+
+app.controller("QuizzSelectController", function ($scope) {
+});
+
+app.controller("QuizzPlayStartSelectController", function ($scope) {
+});
+
+app.controller("QuizzPlayEndController", function ($scope) {
+});
+
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -103,6 +115,36 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
+    $stateProvider.state('tab.play.select', {
+        url: "/playSelect",
+        views: {
+            'tab-play-select': {
+              templateUrl: 'templates/tab-play-select.html',
+              controller: 'PlaySelectController'
+            }    	  
+        }
+      });
+
+    $stateProvider.state('tab.quizz.select', {
+        url: "/quizzSelect",
+        views: {
+            'tab-quizz-select': {
+              templateUrl: 'templates/tab-quizz-select.html',
+              controller: 'QuizzSelectController'
+            }    	  
+        }
+      });
+
+    $stateProvider.state('tab.quizz.play-start', {
+        url: "/quizzPlayStart",
+        views: {
+            'tab-quizz-play-start': {
+              templateUrl: 'templates/tab-quizz-play-start.html',
+              controller: 'QuizzPlayStartController'
+            }    	  
+        }
+      });
+
   $stateProvider.state('tab.questions', {
       url: '/questions',
       views: {
@@ -113,7 +155,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('tab.dash', {
+  $stateProvider.state('tab.quizz.play-end', {
+        url: "/quizzPlayEnd",
+        views: {
+            'tab-quizz-play-end': {
+              templateUrl: 'templates/tab-quizz-play-end.html',
+              controller: 'QuizzPlayEndController'
+            }    	  
+        }
+      });
+
+    
+  $stateProvider.state('tab.dash', {
       url: '/dash',
       views: {
         'tab-dash': {
@@ -121,9 +174,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'DashCtrl'
         }
       }
-    })
+    });
 
-    .state('tab.friends', {
+    $stateProvider.state('tab.friends', {
       url: '/friends',
       views: {
         'tab-friends': {
@@ -131,8 +184,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'FriendsCtrl'
         }
       }
-    })
-    .state('tab.friend-detail', {
+    });
+  
+  $stateProvider.state('tab.friend-detail', {
       url: '/friend/:friendId',
       views: {
         'tab-friends': {
@@ -142,7 +196,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('tab.account', {
+    $stateProvider.state('tab.account', {
       url: '/account',
       views: {
         'tab-account': {
