@@ -59,9 +59,13 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 });
 
 
+app.controller("HomeController", function ($scope) {
+});
+
 
 app.controller("DashboardController", function ($scope) {
 });
+
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -78,6 +82,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     // Each tab has its own nav history stack:
+
+  $stateProvider.state('tab.home', {
+      url: "/home",
+      views: {
+          'tab-home': {
+            templateUrl: 'templates/tab-home.html',
+            controller: 'HomeController'
+          }    	  
+      }
+    });
 
     $stateProvider.state('tab.dashboard', {
       url: "/dashboard",
