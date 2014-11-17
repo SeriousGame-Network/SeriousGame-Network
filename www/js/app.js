@@ -60,7 +60,8 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 
 
 
-
+app.controller("DashboardController", function ($scope) {
+});
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -68,10 +69,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider
 
     // setup an abstract state for the tabs directive
-    .state('tab', {
+  $stateProvider.state('tab', {
       url: "/tab",
       abstract: true,
       templateUrl: "templates/tabs.html"
@@ -79,7 +79,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // Each tab has its own nav history stack:
 
-    .state('tab.questions', {
+    $stateProvider.state('tab.dashboard', {
+      url: "/dashboard",
+      views: {
+          'tab-dashboard': {
+            templateUrl: 'templates/tab-dashboard.html',
+            controller: 'DashboardController'
+          }    	  
+      }
+    });
+
+  $stateProvider.state('tab.questions', {
       url: '/questions',
       views: {
         'tab-questions': {
