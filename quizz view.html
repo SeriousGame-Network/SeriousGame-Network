@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Play, Learn & Meet!</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- 
+     <script src="lib/ionic/js/angular/angular.js"></script>
+    -->
+
+    <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script src="js/quizzapp.js"></script>
+
+
+
+  </head>
+  <body ng-app="quizzApp">
+
+  <div class="bar bar-header bar-positive">
+    <h1 class="title">Quizz</h1>
+
+  <div class="list">
+
+  <br>
+  <br>
+
+  <div ng-controller="quizzController as quizzCtrl">  
+    
+    <h3>Your current score: {{totalScore}}</h3>
+    
+    <div ng-repeat="question in questions">
+	    <h3>{{question.text}}</h3>
+	
+	    <button ng-repeat="ans in question.answers" 
+	    	ng-click="selectAnswer(ans)"
+	    	class="button button-full button-calm">
+	      {{ans.text}}
+	    </button>
+
+    </div>
+  </div>
+  </div>
+  </body>
+</html>
