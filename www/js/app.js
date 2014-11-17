@@ -116,7 +116,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state('tab.play.select', {
-        url: "/playSelect",
+        url: "/play-select",
+        views: {
+            'tab-play-select': {
+              templateUrl: 'templates/tab-play-select.html',
+              controller: 'PlaySelectController'
+            }    	  
+        }
+      });
+    $stateProvider.state('tab.play.select', {
+        url: "/tab/play-select",
         views: {
             'tab-play-select': {
               templateUrl: 'templates/tab-play-select.html',
@@ -126,7 +135,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       });
 
     $stateProvider.state('tab.quizz.select', {
-        url: "/quizzSelect",
+        url: "/tab/quizz-select",
         views: {
             'tab-quizz-select': {
               templateUrl: 'templates/tab-quizz-select.html',
@@ -136,7 +145,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       });
 
     $stateProvider.state('tab.quizz.play-start', {
-        url: "/quizzPlayStart",
+        url: "/quizz-start",
         views: {
             'tab-quizz-play-start': {
               templateUrl: 'templates/tab-quizz-play-start.html',
@@ -156,7 +165,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
   $stateProvider.state('tab.quizz.play-end', {
-        url: "/quizzPlayEnd",
+        url: "/quizz-end",
         views: {
             'tab-quizz-play-end': {
               templateUrl: 'templates/tab-quizz-play-end.html',
@@ -176,35 +185,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
-    $stateProvider.state('tab.friends', {
-      url: '/friends',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    });
-  
-  $stateProvider.state('tab.friend-detail', {
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
-        }
-      }
-    })
-
-    $stateProvider.state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
-        }
-      }
-    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
