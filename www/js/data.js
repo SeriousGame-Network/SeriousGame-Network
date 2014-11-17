@@ -1,5 +1,6 @@
 angular.module("sqnApp.dataService", [])
 .factory("sgnDataService", function ($scope, $localStorage) {
+
 	return {
 	  data : {
 
@@ -120,13 +121,9 @@ angular.module("sqnApp.dataService", [])
 		        	    }
 		        	    ]
 		        }
-<<<<<<< HEAD:www/js/data.js
+
 		    ] // $scope.data
 	  },
-=======
-		    ]
-	  }; // $scope.data
->>>>>>> f8e2ce62cd5df83b1ad5ded96375e8022b6681dc:js/data.js
 
 	  writeDataToLocalStorage : function() {
 		  console.log("writeStorage");
