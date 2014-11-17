@@ -52,9 +52,6 @@ app.controller("HomeController", function ($scope) {
 app.controller("SelectGameController", function ($scope) {
 });
 
-app.controller("PlaySelectController", function ($scope) {
-});
-
 app.controller("DashboardController", function ($scope) {
 });
 
@@ -83,16 +80,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     });
 
     // Each tab has its own nav history stack:
-
-    $stateProvider.state('tab.playselect', {
-        url: "/playselect",
-        views: {
-            'tab-play-select': {
-              templateUrl: 'templates/tab-playselect.html',
-              controller: 'PlaySelectController'
-            }    	  
-        }
-      });
 
   $stateProvider.state('tab.selectgame', {
       url: "/selectgame",
