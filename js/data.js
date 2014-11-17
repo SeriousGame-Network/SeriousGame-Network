@@ -36,7 +36,7 @@ angular.module("sqnApp.dataService", [])
 		        	    }
 		        	    ]
 		        }
-		    ]; // $scope.data
+		    ] // $scope.data
 	  };
 
 	  $scope.writeDataToLocalStorage = function() {
@@ -48,4 +48,4 @@ angular.module("sqnApp.dataService", [])
 		  console.log("readDataFromLocalStorage");
 		  $scope.data = window.localStorage["sgn-data"];
 	  }// end .service function
-);
+});
