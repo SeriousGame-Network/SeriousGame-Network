@@ -43,33 +43,19 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 	var data = sgnDataService.getData();
 	$scope.questions = sgnDataService.getData().questions;
 
-
-		  /*
-	$scope.questionNo = $routeParams && $routeParams.questionNo ? $routeParams.questionNo : 1;
-// TODO		    $scope.questions = questions;
-		  $scope.selectAnswer = function (question, choice) {
-		    question.selected = choice;
-		  };
-
-		  $scope.viewResults = function () {
-		    $resultsService.setResults($scope.questions);
-		    $location.path( "/results" );
-		  }
-*/
 });
 
 
 app.controller("HomeController", function ($scope, $state) {
-	$scope.navigateToPlaySelect = function() {
-		$state.transitionTo('tab.playselect');
+	$scope.navigateToSelectGame = function() {
+		$state.transitionTo('tab.selectgame');
 	}
 });
 
-
-app.controller("DashboardController", function ($scope) {
+app.controller("SelectGameController", function ($scope) {
 });
 
-app.controller("PlaySelectController", function ($scope, $state) {
+app.controller("DashboardController", function ($scope) {
 });
 
 app.controller("QuizzSelectController", function ($scope) {
@@ -94,9 +80,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/tab",
       abstract: true,
       templateUrl: "templates/tabs.html"
-    })
+    });
 
     // Each tab has its own nav history stack:
+
+  $stateProvider.state('tab.selectgame', {
+      url: "/selectgame",
+      views: {
+          'tab-selectgame': {
+            templateUrl: 'templates/tab-selectgame.html',
+            controller: 'SelectGameController'
+          }    	  
+      }
+    });
 
   $stateProvider.state('tab.home', {
       url: "/home",
@@ -156,7 +152,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'QuestionsController2'
         }
       }
-    })
+    });
 
   $stateProvider.state('tab.quizzplayend', {
         url: "/quizz-end",
