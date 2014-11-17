@@ -58,6 +58,9 @@ app.controller("SelectGameController", function ($scope) {
 app.controller("DashboardController", function ($scope) {
 });
 
+app.controller("InProgressController", function ($scope) {
+});
+
 app.controller("QuizzSelectController", function ($scope) {
 });
 
@@ -113,6 +116,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
           }    	  
       }
     });
+
+  $stateProvider.state('tab.inprogress', {
+      url: "/inprogress",
+      views: {
+          'inprogress': {
+            templateUrl: 'templates/inprogress.html',
+            controller: 'InProgressController'
+          }    	  
+      }
+    });
+
 
     $stateProvider.state('tab.playselect', {
         url: "/play-select",
