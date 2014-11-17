@@ -1,10 +1,12 @@
 
+console.log("loading data.js");
 
-app.service("dataService", function ($scope, $localStorage) {
+angular.module("sqnApp.dataService", [])
+.service("dataService", function ($scope, $localStorage) {
 
 	$scope.data = {
 			  
-		questions = [
+		questions : [
 		        { // question 1
 		        	name : "",
 		        	text : "Quels sont les modificateurs d'accès en Java ?",
@@ -32,7 +34,7 @@ app.service("dataService", function ($scope, $localStorage) {
 		        	    }
 		        	    ]
 		        }
-		    ];
+		    ]; // $scope.data
 	  
 	  $scope.writeDataToLocalStorage = function() {
 		  console.log("writeStorage");
@@ -43,5 +45,5 @@ app.service("dataService", function ($scope, $localStorage) {
 	  $scope.readDataFromLocalStorage = function() {
 		  console.log("readDataFromLocalStorage");
 		  $scope.data = window.localStorage["sgn-data"];
-	}
+}// end .service function
 );

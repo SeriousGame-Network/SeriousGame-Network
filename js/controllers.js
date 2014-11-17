@@ -1,7 +1,6 @@
 
-var app = angular.module("quizzApp", []);
-
-app.controller("quizzController", function($scope) {
+angular.module("sgnApp.controllers", [])
+.controller(function($scope) {
 	
 	$scope.hello = "hello";
 	$scope.totalScore = 0;
