@@ -58,7 +58,8 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 		$scope.score += answer.score;
 
 		if ($scope.currentQuestionNb == $scope.questions.length) {
-			alert("Bravo, vous avez marqué : " + $scope.score + " points !");
+      toastr.options.closeButton = true;
+      toastr.success("Bravo, vous avez marqué : " + $scope.score + " points !");
 			window.location = "#/tab/dashboard";
 		}
 	};
