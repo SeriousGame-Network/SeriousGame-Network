@@ -161,6 +161,10 @@ angular.module("sqnApp.dataService", [])
 		  return data.quizzProfiles;
 	  },
 	  
+	  contributeQuestion : function(newQuestion) {
+		  data.questions.push(newQuestion);  
+	  },
+	  
 	  writeDataToLocalStorage : function() {
 		  console.log("writeStorage");
 		  window.localStorage["sgn-data"] = data;

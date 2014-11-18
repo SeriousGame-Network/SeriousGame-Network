@@ -167,6 +167,50 @@ app.controller("QuizzPlayStartSelectController", function ($scope) {
 app.controller("QuizzPlayEndController", function ($scope) {
 });
 
+app.controller("ContributeQuestionController", function ($scope, $state, sgnDataService) {
+
+	$scope.question = {
+		name : "choisissez un nom pour la question...",
+		text : "posez votre question...",
+		tags : "mots-clefs...",
+		level : 3,
+		answers : [
+			{
+			text : "bonne réponse...",
+			score : 1.0
+			},
+			{
+			text : "mauvaise réponse 1...",
+			score : -1.0
+			},
+			{
+			text : "mauvaise réponse 2...",
+			score : -1.0
+			}			
+		]	
+	};
+	
+	$scope.addAnswer = function() {
+		var answer =  {
+				text : "réponse...",
+				score : -1.0
+				};
+		$scope.question.answers.push(answer);
+		alert("answers.length: " + $scope.question.answers.length);
+	};
+	
+	$scope.contributeQuestion = function() {
+		var newQuestion = {
+			name : $scope.question.name,
+			text : $scope.question.text,
+			answers : $scope.question.answers			
+		};
+		sgnDataService.contributeQuestion(newQuestion);
+		$state.transitionTo('tab.home');
+		
+	};
+	
+});
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -315,6 +359,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
+  $stateProvider.state('tab.contributequestion', {
+      url: '/contributequestion',
+      views: {
+        'contributequestion': {
+          templateUrl: 'templates/tab-contributequestion.html',
+          controller: 'ContributeQuestionController'
+        }
+      }
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
