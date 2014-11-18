@@ -72,10 +72,21 @@ app.controller("HomeController", function ($scope, $state) {
 app.controller("SelectGameController", function ($scope) {
 });
 
-app.controller("DashboardController", function ($scope) {
+app.controller("DashboardController", function ($scope, sgnDataService) {
+
+	$scope.msg = "msg---DashboardController";
+	var data = sgnDataService.getData();
+	$scope.level = sgnDataService.getData().level;
 });
 
 app.controller("InProgressController", function ($scope) {
+});
+
+app.controller("AutoEvalController", function ($scope, sgnDataService) {
+
+	$scope.msg = "msg---AutoEvalController";
+	var data = sgnDataService.getData();
+	$scope.level = sgnDataService.getData().level;
 });
 
 app.controller("QuizzSelectController", function ($scope) {
@@ -144,6 +155,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
+  $stateProvider.state('tab.autoeval', {
+      url: "/autoeval",
+      views: {
+          'tab-autoeval': {
+            templateUrl: 'templates/tab-autoeval.html',
+            controller: 'AutoEvalController'
+          }    	  
+      }
+    });
 
     $stateProvider.state('tab.playselect', {
         url: "/play-select",

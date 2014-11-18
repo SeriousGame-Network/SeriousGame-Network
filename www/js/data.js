@@ -119,7 +119,14 @@ angular.module("sqnApp.dataService", [])
 		        	    }
 		        	    ]
 		        }
-		    ]
+		    ],
+		    level : {
+		    	java : 4,
+		    	dotnet : 1,
+		    	pnl : 5,
+		    	support : 3,
+		    	hackathon : 2
+		    }
 	  }; // var data
 
 	  

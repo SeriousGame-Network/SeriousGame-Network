@@ -1,6 +1,8 @@
 <ion-view title="Serious Games Network - Profil">
 <ion-content padding="true" >
 
+<div ng-controller="DashboardController">
+
 <div class="row">
      <div class="col col-20">
         <img src="images/am.png" height="110px" />
@@ -22,7 +24,7 @@
       </a>
       <a class="item item-icon-right">
         <h2>Langage</h2>
-        <span class="badge"><img src="icons/level4.png" height="25px" width="100px"/></span>
+        <span class="badge"><img src="icons/level{{level.java}}.png" height="25px" width="100px"/></span>
       </a>
 
       <a class="item item-divider item-icon-right">
@@ -30,7 +32,7 @@
       </a>
       <a class="item item-icon-right">
         <h2>C#</h2>
-        <span class="badge"><img src="icons/level1.png" height="25px" width="100px"/></span>
+        <span class="badge"><img src="icons/level{{level.dotnet}}.png" height="25px" width="100px"/></span>
       </a>
 
       <a class="item item-divider item-icon-right" style="background:lightgrey;">
@@ -42,14 +44,16 @@
 
       <a class="item item-icon-right">
         <h2>Fonctionnel métier P&L</h2>
-        <span class="badge"><img src="icons/level5.png" height="25px" width="100px"/></span>
+        <span class="badge"><img src="icons/level{{level.pnl}}.png" height="25px" width="100px"/></span>
       </a>
       <a class="item item-icon-right">
         <h2>Support applicatif niveau 1 & 2</h2>
-        <span class="badge"><img src="icons/level3.png" height="25px" width="100px"/></span>
+        <span class="badge"><img src="icons/level{{level.support}}.png" height="25px" width="100px"/></span>
       </a>
 
     </div>
+</div>
+
 </div>
 
 </ion-content>
