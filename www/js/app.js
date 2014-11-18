@@ -96,6 +96,9 @@ app.controller("AutoEvalController", function ($scope, sgnDataService) {
 app.controller("QuizzSelectController", function ($scope) {
 });
 
+app.controller("SendChallengeController", function ($scope) {
+});
+
 app.controller("QuizzPlayStartSelectController", function ($scope) {
 });
 
@@ -179,22 +182,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
-    $stateProvider.state('tab.playselect', {
-        url: "/play-select",
-        views: {
-            'tab-play-select': {
-              templateUrl: 'templates/tab-play-select.html',
-              controller: 'PlaySelectController'
-            }    	  
-        }
-      });
-
     $stateProvider.state('tab.quizzselect', {
         url: "/quizz-select",
         views: {
             'tab-quizz-select': {
               templateUrl: 'templates/tab-quizz-select.html',
               controller: 'QuizzSelectController'
+            }    	  
+        }
+      });
+
+    $stateProvider.state('tab.sendchallenge', {
+        url: "/sendchallenge",
+        views: {
+            'sendchallenge': {
+              templateUrl: 'templates/tab-sendchallenge.html',
+              controller: 'SendChallengeController'
             }    	  
         }
       });
