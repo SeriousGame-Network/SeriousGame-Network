@@ -33,9 +33,21 @@ angular.module("sqnApp.userDataService", [])
 		     friendNames : [ 
 		                 "Ahmed Magri", // self for demo...
 		                 "Fabien Lequeurre", "Arnaud Nauwynck",
-		                 ],
+             ],
 					    
-			 pendingChallenges : [],
+			 pendingChallenges : 
+				 [
+			     {
+			    	 name : "challenge Java pour expert",
+			    	 sendFrom : "Arnaud Nauwynck",
+			    	 sendTo : "Ahmed Magri",
+			     },
+			     {
+			    	 name : "Expert Finance produit Structurés de taux",
+			    	 sendFrom : "Fabien Lequeurre",
+			    	 sendTo : "Ahmed Magri",
+			     }
+				 ],
 	
 		     answeredQuizz : []
 	     }, 
@@ -64,7 +76,20 @@ angular.module("sqnApp.userDataService", [])
 					    ],
 			 
 			 friendNames : [ "Ahmed Magri", "Arnaud Nauwynck" ],
-			 pendingChallenges : [],
+
+			 pendingChallenges : 
+				 [
+			     {
+			    	 name : "challenge Java pour expert",
+			    	 sendFrom : "Arnaud Nauwynck",
+			    	 sendTo : "Fabien Lequeurre",
+			     },
+			     {
+			    	 name : "Expert Finance produit Structurés de taux",
+			    	 sendFrom : "Ahmed Magri",
+			    	 sendTo : "Fabien Lequeurre",
+			     }
+				 ],
 	
 		     answeredQuizz : []
 	    	 
@@ -94,7 +119,19 @@ angular.module("sqnApp.userDataService", [])
 			 ],
 			 
 		     friendNames : [ "Ahmed Magri", "Fabien Lequeurre", "Arnaud Nauwynck" ],
-			 pendingChallenges : [],
+			 pendingChallenges : 
+				 [
+			     {
+			    	 name : "challenge Java pour expert",
+			    	 sendFrom : "Ahmed Magri",
+			    	 sendTo : "Arnaud Nauwynck",
+			     },
+			     {
+			    	 name : "Expert Finance produit Structurés de taux",
+			    	 sendFrom : "Fabien Lequeurre",
+			    	 sendTo : "Arnaud Nauwynck",
+			     }
+				 ],
 	
 		     answeredQuizz : []
 	    	 

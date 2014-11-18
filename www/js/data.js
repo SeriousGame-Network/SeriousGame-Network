@@ -137,6 +137,12 @@ angular.module("sqnApp.dataService", [])
 		                 },
 		                 {
 		                	 name : "challenge Java pour expert"
+		                 },
+		                 {
+		                	 name : "Expert Finance produit Structurés de taux"
+		                 },
+		                 {
+		                	 name : "Développeur sur Xone"
 		                 }
 		    ]
 	  }; // var data

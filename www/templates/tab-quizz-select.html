@@ -7,12 +7,28 @@
 	<option ng-repeat="c in availableQuiz">{{c.name}}</option>
 </select>
 </h2>
-<img src="icons/play.png" height="180px" width="180px"/><br /> <h2>Jouer</h2></a>
+<button ng-enable="!!selectedQuizz" 
+	ng-click="startSelectedQuizz();" class="button button-calm">
+	<h3>Lancer le Quizz</h3>
+</button>
 
 
-<div>
+<div ng-show="pendingChallenges.length == 0">
+	Aucun challenge à relever
+</div>
+<div ng-show="pendingChallenges.length != 0">
+	Challenges à relever:</BR>
+	<div class="list">
+		<div ng-repeat="c in pendingChallenges">
+			<button class="item item-thumbnail-left" 
+				ng-click="startPendingChallenge(c);" class="button button-calm">
+				Lancer
+			</button>
+	      <h3>{{c.name}}</h3>
+	      <p>Challenged sent by {{c.sendFrom}}</p>
+		</div>
+	</div>
 </div>
 
-
-  </ion-content>
+</ion-content>
 </ion-view>

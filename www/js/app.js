@@ -107,7 +107,22 @@ app.controller("ExplorerController", function ($scope, $state, sgnDataService) {
   }  
 });
 
-app.controller("QuizzSelectController", function ($scope) {
+app.controller("QuizzSelectController", function ($scope, $state, sgnDataService, userDataService) {
+	$scope.currentUser = userDataService.getCurrentUser();
+	
+	$scope.selectedQuizz = undefined;
+	$scope.availableQuiz = sgnDataService.getQuizzProfiles();
+
+	$scope.pendingChallenges = $scope.currentUser.pendingChallenges;
+	
+	$scope.startSelectedQuizz = function(selectedQuizz) {
+		$state.transitionTo('tab.questions');
+	};
+	
+	$scope.startChallenge = function(challenge) {
+		$state.transitionTo('tab.questions');
+	};
+
 });
 
 app.controller("SendChallengeController", function ($scope, $state, sgnDataService, userDataService) {
