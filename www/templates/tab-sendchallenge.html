@@ -1,12 +1,23 @@
 <ion-view title="Défier">
   <ion-content class="padding">
     
-    <div ng-controller="SendChallengeController">
-Choisissez un Quizz:
+<div><!--  ng-controller="SendChallengeController" -->
+Choisissez un Quizz: 
+<select ng-model="challenge.quizz">
+	<option ng-repeat="c in availableQuizToSend">{{c.name}}</option>
+</select>
 <BR/>
-Challenger:
+Send to Challenger:
+<select ng-model="challenge.sendTo">
+	<option ng-repeat="u in friendsToSend">{{u}}</option>
+</select>
+
 <BR/>
     </div>
+
+		<button ng-click="sendChallenge({{challenge}});" class="button button-full button-calm">
+			<h3>Send</h3>
+		</button>
 
   </ion-content>
 </ion-view>

@@ -12,6 +12,7 @@ var app = angular.module('sgnApp',
         
         'sgnApp.answerController',
         'sqnApp.dataService',
+        'sqnApp.userDataService',
         'sgnApp.directives',
         'sgnApp.filters',
         'sgnApp.questionsController'        
@@ -107,7 +108,22 @@ app.controller("ExplorerController", function ($scope, $state, sgnDataService) {
 app.controller("QuizzSelectController", function ($scope) {
 });
 
-app.controller("SendChallengeController", function ($scope) {
+app.controller("SendChallengeController", function ($scope, $state, sgnDataService, userDataService) {
+	$scope.currentUser = userDataService.getCurrentUser();
+	$scope.friendsToSend = $scope.currentUser.friends; // [ "Fabien Lequeurre", "Ahmed Magri", "Arnaud Nauwynck" ]; // $scope.currentUser.friends;
+	$scope.availableQuizToSend = sgnDataService.getQuizzProfiles();
+
+	$scope.challenge = {
+		sendFrom : $scope.currentUser,
+		sendTo : ($scope.friendsToSend.length == 1)? $scope.friendsToSend[0] : "",
+		quizz : ""
+	};
+		
+	$scope.sendChallenge = function(challenge) {
+		userDataService.sendChallenge(challenge);
+
+		$state.transitionTo('tab.home');
+	}
 });
 
 app.controller("QuizzPlayStartSelectController", function ($scope) {
