@@ -120,21 +120,28 @@ app.controller("SendChallengeController", function ($scope, $state, sgnDataServi
 		sendTo : ($scope.friendUsersToSend.length == 1)? $scope.friendUsersToSend[0] : "",
 		quizz : ""
 	};
-		
-	$scope.sendChallenge = function(challenge) {
-		userDataService.sendChallenge(challenge);
-
+	
+	$scope.sendEnable = false;
+	
+	$scope.sendChallenges = function() {
+		for(i = 0; i< $scope.friendUsersToSend.length; i++) {
+			var toUser = $scope.friendUsersToSend[i];
+			if (toUser.selectedToSendChallenge) {
+				var userChallenge = {
+					sendFrom : $scope.currentUser,
+					sendTo : toUser.name,
+					quizz : $scope.challenge.quizz
+					};			
+				userDataService.sendChallenge(userChallenge);
+			}
+		}
 		$state.transitionTo('tab.home');
 	}
-	$scope.sendChallengeToUser = function(user) {
-		var userChallenge = {
-			sendFrom : $scope.currentUser,
-			sendTo : $scope.challenge.sendTo,
-			quizz : $scope.challenge.quizz
-			};
-		userDataService.sendChallenge(userChallenge);
-
-		$state.transitionTo('tab.home');
+	
+	$scope.toggleSelectedToSendChallenge = function(user) {
+		user.selectedToSendChallenge = !user.selectedToSendChallenge;
+		// enable send button?
+		$scope.sendEnable = !!$scope.challenge.quizz;
 	}
 
 });

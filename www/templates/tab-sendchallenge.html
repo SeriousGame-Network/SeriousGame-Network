@@ -12,10 +12,11 @@
 <h2>Send to Challenger:
 <div class="list">
 
-    <a class="item item-thumbnail-left" ng-repeat="u in friendUsersToSend" ng-click="sendChallengeToUser(u)" >
+    <a class="item item-thumbnail-left" ng-repeat="u in friendUsersToSend" ng-click="toggleSelectedToSendChallenge(u)" >
       <img ng-src="{{u.photoURL}}">
       <h2>{{u.name}}</h2>
       <p>{{u.describeText}}</p>
+      <p ng-show="!!u.selectedToSendChallenge">To send...</p>
     </a>
 
 </div>
@@ -24,7 +25,8 @@
 <BR/>
     </div>
 
-		<button ng-click="sendChallenge({{challenge}});" class="button button-calm">
+		<button ng-enable="sendEnable" 
+			ng-click="sendChallenges();" class="button button-calm">
 			<h3>Send</h3>
 		</button>
 
