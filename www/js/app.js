@@ -57,7 +57,8 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 		$scope.score += answer.score;
 
 		if ($scope.currentQuestionNb == $scope.questions.length) {
-			alert("Vous avez marqué : " + $scope.score + " points");
+			alert("Bravo, vous avez marqué : " + $scope.score + " points !");
+			window.location = "#/tab/dashboard";
 		}
 	};
 });
@@ -80,6 +81,9 @@ app.controller("DashboardController", function ($scope, sgnDataService) {
 });
 
 app.controller("InProgressController", function ($scope) {
+});
+
+app.controller("WheelController", function ($scope) {
 });
 
 app.controller("AutoEvalController", function ($scope, sgnDataService) {
@@ -151,6 +155,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
           'inprogress': {
             templateUrl: 'templates/inprogress.html',
             controller: 'InProgressController'
+          }    	  
+      }
+    });
+
+  $stateProvider.state('tab.wheel', {
+      url: "/wheel",
+      views: {
+          'wheel': {
+            templateUrl: 'templates/spinwheel.html',
+            controller: 'WheelController'
           }    	  
       }
     });
