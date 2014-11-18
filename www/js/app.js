@@ -59,6 +59,7 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 
 		if ($scope.currentQuestionNb == $scope.questions.length) {
       toastr.options.closeButton = true;
+      toastr.options.newestOnTop = false;
       toastr.success("Bravo, vous avez marqué : " + $scope.score + " points !");
 			window.location = "#/tab/dashboard";
 		}
