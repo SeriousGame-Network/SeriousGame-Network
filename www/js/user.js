@@ -9,6 +9,8 @@ angular.module("sqnApp.userDataService", [])
 		users : [
 	     { // user 1
 			 name : "Ahmed Magri",
+			 photoURL : "images/am.png",
+			 describeText : "Développeur",
 			 
 			 levels : [
 					        { 
@@ -28,7 +30,7 @@ angular.module("sqnApp.userDataService", [])
 					        	level : 1
 					        },
 					    ],
-		     friends : [ 
+		     friendNames : [ 
 		                 "Ahmed Magri", // self for demo...
 		                 "Fabien Lequeurre", "Arnaud Nauwynck",
 		                 ],
@@ -39,6 +41,8 @@ angular.module("sqnApp.userDataService", [])
 	     }, 
 	     { // user 2
 			 name : "Fabien Lequeurre",
+			 photoURL : "images/fl.png",
+			 describeText : "Développeur",
 			 
 			 levels : [
 					        { 
@@ -59,12 +63,43 @@ angular.module("sqnApp.userDataService", [])
 					        },
 					    ],
 			 
-		     friends : [ "Ahmed Magri", "Arnaud Nauwynck" ],
+			 friendNames : [ "Ahmed Magri", "Arnaud Nauwynck" ],
+			 pendingChallenges : [],
+	
+		     answeredQuizz : []
+	    	 
+	     },
+	     { // user 2
+			 name : "Arnaud Nauwynck",
+			 photoURL : "images/an.png",
+			 describeText : "Développeur",
+			 
+			 levels : [
+					        { 
+					        	tags : "dev java langage",
+					        	level : 5
+					        },
+					        { 
+					        	tags : "dev .net langage",
+					        	level : 3
+					        },
+					        { 
+					        	tags : "appli neo infra",
+					        	level : 1
+					        },
+					        { 
+					        	tags : "appli neo support",
+					        	level : 1
+					        },
+			 ],
+			 
+		     friendNames : [ "Ahmed Magri", "Fabien Lequeurre", "Arnaud Nauwynck" ],
 			 pendingChallenges : [],
 	
 		     answeredQuizz : []
 	    	 
 	     }
+
 		]
 	  };
 
@@ -91,6 +126,17 @@ angular.module("sqnApp.userDataService", [])
 				  }
 				  return res;
 			  },
+			  
+			  getFriendUsers : function(user) {
+				var res = [];
+				for (i = 0; i< user.friendNames.length; i++) {
+					var u = this.getUserData(user.friendNames[i]);
+					if (u) {
+						res.push(u);
+					}
+				}
+				return res;
+			  } ,
 			  
 			  sendChallenge : function(challenge) {
 				  var user = this.getUserData(challenge.sendTo);

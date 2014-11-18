@@ -8,11 +8,18 @@
 </select>
 </h2>
 <BR/>
+
 <h2>Send to Challenger:
-<select ng-model="challenge.sendTo">
-	<option ng-repeat="u in friendsToSend">{{u}}</option>
-</select>
-</h2>
+<div class="list">
+
+    <a class="item item-thumbnail-left" ng-repeat="u in friendUsersToSend" ng-click="sendChallengeToUser(u)" >
+      <img ng-src="{{u.photoURL}}">
+      <h2>{{u.name}}</h2>
+      <p>{{u.describeText}}</p>
+    </a>
+
+</div>
+
 
 <BR/>
     </div>

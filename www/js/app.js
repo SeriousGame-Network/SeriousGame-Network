@@ -110,12 +110,12 @@ app.controller("QuizzSelectController", function ($scope) {
 
 app.controller("SendChallengeController", function ($scope, $state, sgnDataService, userDataService) {
 	$scope.currentUser = userDataService.getCurrentUser();
-	$scope.friendsToSend = $scope.currentUser.friends; // [ "Fabien Lequeurre", "Ahmed Magri", "Arnaud Nauwynck" ]; // $scope.currentUser.friends;
+	$scope.friendUsersToSend = userDataService.getFriendUsers($scope.currentUser); 
 	$scope.availableQuizToSend = sgnDataService.getQuizzProfiles();
 
 	$scope.challenge = {
 		sendFrom : $scope.currentUser,
-		sendTo : ($scope.friendsToSend.length == 1)? $scope.friendsToSend[0] : "",
+		sendTo : ($scope.friendUsersToSend.length == 1)? $scope.friendUsersToSend[0] : "",
 		quizz : ""
 	};
 		
@@ -124,6 +124,17 @@ app.controller("SendChallengeController", function ($scope, $state, sgnDataServi
 
 		$state.transitionTo('tab.home');
 	}
+	$scope.sendChallengeToUser = function(user) {
+		var userChallenge = {
+			sendFrom : $scope.currentUser,
+			sendTo : $scope.challenge.sendTo,
+			quizz : $scope.challenge.quizz
+			};
+		userDataService.sendChallenge(userChallenge);
+
+		$state.transitionTo('tab.home');
+	}
+
 });
 
 app.controller("QuizzPlayStartSelectController", function ($scope) {
@@ -222,7 +233,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('tab.quizzselect', {
         url: "/quizz-select",
         views: {
-            'tab-quizz-select': {
+            'quizz-select': {
               templateUrl: 'templates/tab-quizz-select.html',
               controller: 'QuizzSelectController'
             }    	  
