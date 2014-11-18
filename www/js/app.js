@@ -67,7 +67,10 @@ app.controller("QuestionsController2", function ($scope, sgnDataService) {
 app.controller("HomeController", function ($scope, $state) {
 	$scope.navigateToSelectGame = function() {
 		$state.transitionTo('tab.selectgame');
-	}
+	};
+  $scope.navigateToExplorer = function() {
+		$state.transitionTo('tab.explorer');
+	};
 });
 
 app.controller("SelectGameController", function ($scope) {
@@ -87,10 +90,18 @@ app.controller("WheelController", function ($scope) {
 });
 
 app.controller("AutoEvalController", function ($scope, sgnDataService) {
-
 	$scope.msg = "msg---AutoEvalController";
 	var data = sgnDataService.getData();
 	$scope.level = sgnDataService.getData().level;
+});
+
+app.controller("ExplorerController", function ($scope, $state, sgnDataService) {
+	$scope.msg = "msg---ExplorerController";      
+	var data = sgnDataService.getData();
+	$scope.level = sgnDataService.getData().level;
+  $scope.goToNextTab = function() {
+    $state.go('tab.questions');
+  }  
 });
 
 app.controller("QuizzSelectController", function ($scope) {
@@ -178,6 +189,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
           'tab-autoeval': {
             templateUrl: 'templates/tab-autoeval.html',
             controller: 'AutoEvalController'
+          }    	  
+      }
+    });
+    
+    $stateProvider.state('tab.explorer', {
+      url: "/explorer",
+      views: {
+          'tab-explorer': {
+            templateUrl: 'templates/tab-explorer.html',
+            controller: 'ExplorerController'
           }    	  
       }
     });
