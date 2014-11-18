@@ -3,15 +3,16 @@ angular.module("sqnApp.userDataService", [])
 .service("userDataService", function () {
 
 	var data = {
+
 		currentUserName : "Ahmed Magri",
 		currentUser : undefined,
-		
+
 		users : [
 	     { // user 1
 			 name : "Ahmed Magri",
 			 photoURL : "images/am.png",
-			 describeText : "Développeur",
-			 
+			 describeText : "Porteur d'idée",
+
 			 levels : [
 					        { 
 					        	tags : "dev java langage",
@@ -38,7 +39,7 @@ angular.module("sqnApp.userDataService", [])
 			 pendingChallenges : 
 				 [
 			     {
-			    	 name : "challenge Java pour expert",
+			    	 name : "Challenge Java pour expert",
 			    	 sendFrom : "Arnaud Nauwynck",
 			    	 sendTo : "Ahmed Magri",
 			     },
@@ -80,12 +81,12 @@ angular.module("sqnApp.userDataService", [])
 			 pendingChallenges : 
 				 [
 			     {
-			    	 name : "challenge Java pour expert",
+			    	 name : "Challenge Java pour expert",
 			    	 sendFrom : "Arnaud Nauwynck",
 			    	 sendTo : "Fabien Lequeurre",
 			     },
 			     {
-			    	 name : "Expert Finance produit Structurés de taux",
+			    	 name : "Expert finance produits structurés de taux",
 			    	 sendFrom : "Ahmed Magri",
 			    	 sendTo : "Fabien Lequeurre",
 			     }
@@ -122,12 +123,12 @@ angular.module("sqnApp.userDataService", [])
 			 pendingChallenges : 
 				 [
 			     {
-			    	 name : "challenge Java pour expert",
+			    	 name : "Challenge Java pour expert",
 			    	 sendFrom : "Ahmed Magri",
 			    	 sendTo : "Arnaud Nauwynck",
 			     },
 			     {
-			    	 name : "Expert Finance produit Structurés de taux",
+			    	 name : "Expert finance produits structurés de taux",
 			    	 sendFrom : "Fabien Lequeurre",
 			    	 sendTo : "Arnaud Nauwynck",
 			     }

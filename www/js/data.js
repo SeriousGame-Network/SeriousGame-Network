@@ -129,6 +129,9 @@ angular.module("sqnApp.dataService", [])
 		    },
 		    
 		    quizzProfiles : [
+		    			 {
+		    			 	 name : "Quizz Trivia sur le hackathon"
+		    			 },
 		                 {
 		                	 name : "Quizz Java pour débutant"
 		                 },
@@ -136,13 +139,13 @@ angular.module("sqnApp.dataService", [])
 		                	 name : "Quizz Java recrutement MOE junior"
 		                 },
 		                 {
-		                	 name : "challenge Java pour expert"
+		                	 name : "Challenge Java pour expert"
 		                 },
 		                 {
 		                	 name : "Expert Finance produit Structurés de taux"
 		                 },
 		                 {
-		                	 name : "Développeur sur Xone"
+		                	 name : "Développeur sur XOne"
 		                 }
 		    ]
 	  }; // var data
