@@ -3,10 +3,30 @@
 
 		<h2>{{currentQuestion.text}} {{currentQuestionNb}}/{{questions.length-1}}</h2>
 
+<div class="row">
+    <div class="col">
 		<button ng-click="selectAnswer({{answer}});" ng-repeat="answer in currentQuestion.answers" class="button button-full button-calm">
 			<h3>{{answer.text}}</h3>
 		</button>
-
+	</div>
+    <div style="margin-left:15px;">
+		<img src="img/ladder.png" />
+	</div>
+</div>
+<div class="row">
+    <div class="col">
+      <a class="button" style="width:100%"><h4></h4><img src="icons/twiceprice.png" width="100%"/><h4>Points x2</h4></a>
+    </div>
+    <div class="col">
+      <a class="button" style="width:100%"><h4></h4><img src="icons/star.jpeg"  width="100%"/><h4>Plus dur !</h4></a>
+    </div>
+    <div class="col">
+      <a class="button" style="width:100%"><h4></h4><img src="icons/toohard.jpeg"  width="100%"/><h4>Plus simple !</h4></a>
+    </div>
+    <div class="col">
+      <a class="button" style="width:100%"><h4></h4><img src="icons/afraid.png"  width="100%"/><h4>Ne sais pas</h4></a>
+    </div>
+</div>
   </ion-content>
 </ion-view>
   
